@@ -1,0 +1,66 @@
+{{#if brands}}
+<h1>Escolha a marca</h1>
+<form action="/vehicles/" method="get" onchange="submit()">
+    <input type="hidden" name="type" id="type" value={{type}} />
+    <a href="/" class="back-icon">
+        <i class="fas fa-angle-left fa-3x"></i>
+    </a>
+    <select name="brand" id="brand">
+        <option>Marca</option>
+        {{#each brands}}
+        <option value="{{this.codigo}}">{{this.nome}}</option>
+        {{/each}}
+    </select>
+</form>
+{{/if}}
+{{#if models}}
+<h1>Escolha o modelo</h1>
+<form action="/vehicles/" method="get" onchange="submit()">
+    <input type="hidden" name="brand" id="brand" value={{brand}} />
+    <input type="hidden" name="type" id="type" value={{type}} />
+    <a href="/vehicles/?type={{type}}" class="back-icon">
+        <i class="fas fa-angle-left fa-3x"></i>
+    </a>
+    <select name="model" id="model">
+        <option>Modelo</option>
+        {{#each models.modelos}}
+        <option value="{{this.codigo}}">{{this.nome}}</option>
+        {{/each}}
+    </select>
+</form>
+{{/if}}
+{{#if years}}
+<h1>Escolha o Ano</h1>
+<form action="/vehicles/" method="get" onchange="submit()">
+    <input type="hidden" name="brand" id="brand" value={{brand}} />
+    <input type="hidden" name="model" id="model" value={{model}} />
+    <input type="hidden" name="type" id="type" value={{type}} />
+    <a href="/vehicles/?type={{type}}&brand={{brand}}" class="back-icon">
+        <i class="fas fa-angle-left fa-3x"></i>
+    </a>
+    <select name="year" id="year">
+        <option>Ano</option>
+        {{#each years}}
+        <option value="{{this.codigo}}">{{this.nome}}</option>
+        {{/each}}
+    </select>
+</form>
+{{/if}}
+
+{{#if result}}
+<h1>Resultado</h1>
+<div class="container-result">
+    <p><span>Mês de Referência:</span> {{result.MesReferencia}}</p>
+    <p><span>Código Fipe:</span> {{result.CodigoFipe}}</p>
+    <p><span>Marca:</span> {{result.Marca}}</p>
+    <p><span>Modelo:</span> {{result.Modelo}}</p>
+    <p><span>Ano:</span> {{result.AnoModelo}}</p>
+    <p><span>Combustível:</span> {{result.Combustivel}}</p>
+    <p><span>Valor:</span> {{result.Valor}}</p>
+</div>
+    <a onclick="window.print();" class="print-icon">
+        <i class="fas fa-print"></i>
+        <span>Imprimir</span>
+    </a>
+
+{{/if}}

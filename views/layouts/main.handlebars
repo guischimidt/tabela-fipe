@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="shortcut icon" href="/img/fipe-logo-9.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a3abd6ddf2.js" crossorigin="anonymous"></script>
+    <title>Tabela Fipe</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <a href="/" id="logo">
+            <img src="/img/fipe-logo-9.png" alt="Fipe">
+        </a>
+        {{!-- <ul>
+            <li><a href="/">Pensamentos</a></li>
+            {{#if session.userid}}
+            <li><a href="/toughts/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Sair</a></li>
+            {{else}}
+            <li><a href="/login">Entrar</a></li>
+            <li><a href="/register">Cadastrar</a></li>
+            {{/if}}
+
+        </ul> --}}
+    </nav>
+    <div class="container">
+        {{#if messages.message}}
+        <div class="message">
+            {{messages.message}}
+        </div>
+        {{/if}}
+        {{{body}}}
+    </div>
+    <footer>
+        <p><span>Tabela Fipe</span></p>
+    </footer>
+</body>
+
+</html>
